@@ -13,6 +13,7 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"runtime"
 	"strings"
 
 	"github.com/elielamora/glide/internal/transpiler"
@@ -131,7 +132,9 @@ func buildGoSource(goSrc, outName string) {
 }
 
 func goModContent() []byte {
-	return []byte("module gliderun\n\ngo 1.21.0\n")
+	// Derive the Go version from the running toolchain (e.g. "go1.24.1" → "1.24.1").
+	ver := strings.TrimPrefix(runtime.Version(), "go")
+	return []byte("module gliderun\n\ngo " + ver + "\n")
 }
 
 func fatalf(format string, args ...interface{}) {

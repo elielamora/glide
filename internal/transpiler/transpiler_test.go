@@ -1,10 +1,10 @@
 package transpiler
 
 import (
-	"go/build"
 	"os"
 	"os/exec"
 	"path/filepath"
+	"runtime"
 	"strings"
 	"testing"
 )
@@ -53,21 +53,8 @@ func compileAndRun(t *testing.T, goSrc string) string {
 		t.Fatalf("write temp file: %v", err)
 	}
 
-	// Determine the Go toolchain version in the go.mod-compatible format (X.Y.Z).
-	rawTags := build.Default.ReleaseTags
-	goVer := "1.21.0"
-	if len(rawTags) > 0 {
-		last := strings.TrimPrefix(rawTags[len(rawTags)-1], "go")
-		parts := strings.Split(last, ".")
-		switch len(parts) {
-		case 1:
-			goVer = last + ".0.0"
-		case 2:
-			goVer = last + ".0"
-		default:
-			goVer = last
-		}
-	}
+	// Derive the Go version from the running toolchain (e.g. "go1.24.1" → "1.24.1").
+	goVer := strings.TrimPrefix(runtime.Version(), "go")
 
 	goMod := "module tmpglide\n\ngo " + goVer + "\n"
 	if err := os.WriteFile(filepath.Join(dir, "go.mod"), []byte(goMod), 0600); err != nil {
