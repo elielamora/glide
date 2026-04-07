@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import Prism from "prismjs";
 
 // Register Glide as a Prism language
@@ -15,15 +15,12 @@ Prism.languages.glide = {
 };
 
 const CodeBlock = ({ code, language = "glide", filename, className: extraClass = "" }) => {
-  const ref = useRef(null);
-
-  useEffect(() => {
-    if (ref.current) {
-      Prism.highlightElement(ref.current);
-    }
-  }, [code, language]);
-
   const lang = Prism.languages[language] ? language : "glide";
+
+  // Prism.highlight returns syntax-coloured HTML wrapping the input code
+  // string with <span> elements. The code rendered here is always
+  // statically-authored example code, never user-supplied input, so
+  // dangerouslySetInnerHTML is safe in this context.
   let highlighted;
   try {
     highlighted = Prism.highlight(

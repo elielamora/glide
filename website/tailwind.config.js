@@ -33,14 +33,6 @@ module.exports = {
           950: "#2e1065",
         },
       },
-      typography: {
-        DEFAULT: {
-          css: {
-            pre: false,
-            code: false,
-          },
-        },
-      },
     },
   },
   plugins: [],
