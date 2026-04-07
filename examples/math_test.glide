@@ -1,0 +1,21 @@
+; Glide test blocks example
+; Run with: glide test examples/math_test.glide
+
+test "basic arithmetic"
+    assert (== (+ 2 2) 4)
+    assert (== (* 3 5) 15)
+    assert (== (- 10 3) 7)
+    assert (== (/ 10 2) 5)
+
+test "comparisons"
+    assert (> 5 3)
+    assert (< 1 10)
+    assert (>= 5 5)
+    assert (<= 3 3)
+    assert (!= 1 2)
+
+test "nested expressions"
+    ; (1 + 2) * 3 = 9
+    assert (== (* (+ 1 2) 3) 9)
+    ; ((4 + 6) / 2) - 1 = 4
+    assert (== (- (/ (+ 4 6) 2) 1) 4)
