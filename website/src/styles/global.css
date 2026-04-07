@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Prism token theme (Glide / One Dark inspired) ─────────────────────── */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #abb2bf;
+  background: none;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  font-size: 0.9em;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.7;
+  tab-size: 4;
+  hyphens: none;
+}
+
+.token.comment {
+  color: #5c6370;
+  font-style: italic;
+}
+.token.keyword {
+  color: #c678dd;
+}
+.token.string {
+  color: #98c379;
+}
+.token.number {
+  color: #d19a66;
+}
+.token.boolean {
+  color: #d19a66;
+}
+.token.operator {
+  color: #56b6c2;
+}
+.token.function {
+  color: #61afef;
+}
+.token.punctuation {
+  color: #abb2bf;
+}
+.token.builtin {
+  color: #e06c75;
+}
+.token.class-name {
+  color: #e5c07b;
+}
+
+/* ── Scrollbar for code blocks ─────────────────────────────────────────── */
+pre::-webkit-scrollbar {
+  height: 6px;
+}
+pre::-webkit-scrollbar-track {
+  background: #1e2736;
+}
+pre::-webkit-scrollbar-thumb {
+  background: #3d4a5c;
+  border-radius: 3px;
+}
+pre::-webkit-scrollbar-thumb:hover {
+  background: #55657a;
+}
+
+/* ── Smooth scrolling ───────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ── Anchor offset for sticky nav ──────────────────────────────────────── */
+[id] {
+  scroll-margin-top: 80px;
+}
