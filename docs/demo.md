@@ -224,7 +224,7 @@ fn hypotenuse (a float64 b float64) float64
 test "3-4-5 triangle"
     assert (== (hypotenuse 3.0 4.0) 5.0)
 
-test "isoceles right triangle"
+test "isosceles right triangle"
     let h (hypotenuse 1.0 1.0)
     assert (> h 1.41)
     assert (< h 1.42)
