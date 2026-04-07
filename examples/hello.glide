@@ -1,0 +1,6 @@
+; Hello World in Glide
+; Run with: glide run examples/hello.glide
+
+fn main ()
+    fmt.Println "Hello, World!"
+    fmt.Println "Welcome to Glide — the readable Lisp."

@@ -1,0 +1,17 @@
+; Structs and methods example
+; Run with: glide run examples/structs.glide
+
+type Point struct
+    X float64
+    Y float64
+
+fn distance (p1 Point p2 Point) float64
+    let dx (- p2.X p1.X)
+    let dy (- p2.Y p1.Y)
+    math.Sqrt (+ (* dx dx) (* dy dy))
+
+fn main ()
+    let origin (Point 0.0 0.0)
+    let target (Point 3.0 4.0)
+    let d (distance origin target)
+    fmt.Printf "Distance from origin to (3,4) = %.1f\n" d
